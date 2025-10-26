@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger - Professional PDF Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <h1>PDF Merger</h1>
+                </div>
+                <p class="tagline">Merge multiple PDFs into one seamless document</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <h2>Upload PDF Files</h2>
+                        <p>Select multiple PDF files to merge them into one document</p>
+                    </div>
+
+                    <!-- Flash Messages -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="flash-messages">
+                                {% for category, message in messages %}
+                                    <div class="flash-message flash-{{ category }}">
+                                        <i class="fas fa-{{ 'exclamation-triangle' if category == 'error' else 'check-circle' }}"></i>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    <!-- Upload Form -->
+                    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+                        <div class="file-drop-zone" id="dropZone">
+                            <div class="drop-zone-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drag & Drop PDF Files Here</h3>
+                                <p>or <span class="browse-link">browse files</span></p>
+                                <input type="file" id="fileInput" name="files" multiple accept=".pdf" required>
+                            </div>
+                        </div>
+
+                        <!-- Selected Files List -->
+                        <div class="selected-files" id="selectedFiles" style="display: none;">
+                            <h4>Selected Files:</h4>
+                            <ul id="fileList"></ul>
+                        </div>
+
+                        <!-- Upload Button -->
+                        <button type="submit" class="merge-btn" id="mergeBtn" disabled>
+                            <i class="fas fa-layer-group"></i>
+                            <span>Merge PDFs</span>
+                            <div class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Features Section -->
+                <div class="features-section">
+                    <h3>Why Choose Our PDF Merger?</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Secure & Private</h4>
+                            <p>Your files are processed locally and never stored on our servers</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Lightning Fast</h4>
+                            <p>Merge multiple PDFs in seconds with our optimized processing</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Friendly</h4>
+                            <p>Works seamlessly on desktop, tablet, and mobile devices</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-infinity"></i>
+                            <h4>Unlimited Files</h4>
+                            <p>Merge as many PDF files as you need without restrictions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 PDF Merger. Built with Flask & PyPDF2.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
