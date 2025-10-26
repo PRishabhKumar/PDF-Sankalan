@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - PDF Merger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-file-pdf"></i>
+                <span>PDF Merger</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('index') }}#features" class="nav-link">Features</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('contact') }}" class="nav-link active">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-envelope"></i>
+                    <h1>Contact Us</h1>
+                </div>
+                <p class="tagline">Get in touch with our team for support, feedback, or inquiries</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-card">
+                        <h2>Get in Touch</h2>
+                        <p>We'd love to hear from you! Whether you have questions, feedback, or need support, we're here to help.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Name</h4>
+                                    <p>P Rishabh Kumar</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Phone Number</h4>
+                                    <p>+91 XXXXX XXXXX</p>
+                                    <small>Please update with your phone number</small>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Email Address</h4>
+                                    <p>your.email@example.com</p>
+                                    <small>Please update with your email address</small>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Response Time</h4>
+                                    <p>Within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-card">
+                        <h2>Send us a Message</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="faq-card">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h4>Is PDF Merger free to use?</h4>
+                            <p>Yes! PDF Merger is completely free to use with no hidden costs or limitations.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Are my files secure?</h4>
+                            <p>Absolutely. All processing happens locally in your browser. No files are uploaded to our servers.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>What file formats are supported?</h4>
+                            <p>Currently, we support PDF files only. We're working on adding support for other formats.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Is there a file size limit?</h4>
+                            <p>Each individual PDF file can be up to 16MB in size. There's no limit on the number of files you can merge.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Can I use this on mobile devices?</h4>
+                            <p>Yes! PDF Merger is fully responsive and works great on desktop, tablet, and mobile devices.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Do I need to create an account?</h4>
+                            <p>No account required! You can start using PDF Merger immediately without any registration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div class="support-section">
+                <div class="support-card">
+                    <h2>Need Help?</h2>
+                    <p>If you're experiencing issues or have questions, we're here to help you get the most out of PDF Merger.</p>
+                    
+                    <div class="support-options">
+                        <div class="support-option">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Documentation</h4>
+                            <p>Check our comprehensive guides and tutorials</p>
+                            <a href="#" class="support-link">View Docs</a>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-comments"></i>
+                            <h4>Community</h4>
+                            <p>Join our community for tips and discussions</p>
+                            <a href="#" class="support-link">Join Community</a>
+                        </div>
+                        
+                        <div class="support-option">
+                            <i class="fas fa-headset"></i>
+                            <h4>Direct Support</h4>
+                            <p>Get personalized help from our support team</p>
+                            <a href="#contact-form" class="support-link">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PDF Merger</h4>
+                    <p>Professional PDF merging made simple and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('index') }}#features">Features</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="#help">Help</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Merger. Built with Flask & PyPDF2.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

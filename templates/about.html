@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - PDF Merger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-file-pdf"></i>
+                <span>PDF Merger</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('index') }}#features" class="nav-link">Features</a>
+                <a href="{{ url_for('about') }}" class="nav-link active">About</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-info-circle"></i>
+                    <h1>About PDF Merger</h1>
+                </div>
+                <p class="tagline">Learn more about our mission to simplify PDF management</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <div class="about-section">
+                <div class="about-card">
+                    <div class="about-content">
+                        <h2>Our Mission</h2>
+                        <p>PDF Merger was created with a simple goal: to make PDF management accessible, secure, and efficient for everyone. We believe that combining multiple PDF documents shouldn't require complex software or compromise your privacy.</p>
+                        
+                        <h3>Why We Built This</h3>
+                        <p>In today's digital world, we often find ourselves working with multiple PDF documents that need to be combined into a single file. Traditional solutions either require expensive software, compromise user privacy, or have complex interfaces. We wanted to change that.</p>
+                        
+                        <h3>Our Values</h3>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Privacy First</h4>
+                                <p>Your files are processed locally and never stored on our servers. Your documents remain completely private.</p>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Speed & Efficiency</h4>
+                                <p>We've optimized our PDF processing to be lightning fast, saving you valuable time.</p>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-heart"></i>
+                                <h4>User-Centric</h4>
+                                <p>Every feature is designed with the user experience in mind, making complex tasks simple.</p>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-globe"></i>
+                                <h4>Accessibility</h4>
+                                <p>Our tool works seamlessly across all devices and platforms, ensuring everyone can use it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Section -->
+            <div class="tech-section">
+                <div class="tech-card">
+                    <h2>Built with Modern Technology</h2>
+                    <p>PDF Merger leverages cutting-edge web technologies to deliver a fast, secure, and reliable experience.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <h4>Python & Flask</h4>
+                            <p>Robust backend powered by Python and Flask framework</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <h4>PyPDF2</h4>
+                            <p>Advanced PDF processing library for reliable document merging</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <h4>Modern Web</h4>
+                            <p>HTML5, CSS3, and JavaScript for a responsive experience</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Responsive Design</h4>
+                            <p>Optimized for desktop, tablet, and mobile devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Highlight -->
+            <div class="features-highlight">
+                <div class="features-card">
+                    <h2>What Makes Us Different</h2>
+                    <div class="highlight-grid">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>100% Secure</h4>
+                                <p>All processing happens locally in your browser. No files are uploaded to external servers.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>No Limits</h4>
+                                <p>Merge unlimited PDF files without restrictions or watermarks.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Lightning Fast</h4>
+                                <p>Optimized algorithms ensure quick processing even with large files.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Beautiful Interface</h4>
+                                <p>Modern, intuitive design that makes PDF merging a pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PDF Merger</h4>
+                    <p>Professional PDF merging made simple and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('index') }}#features">Features</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="#help">Help</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Merger. Built with Flask & PyPDF2.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

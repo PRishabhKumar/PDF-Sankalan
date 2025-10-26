@@ -6,18 +6,46 @@
     <title>PDF Merger - Professional PDF Tool</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-file-pdf"></i>
+                <span>PDF Merger</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="{{ url_for('index') }}" class="nav-link active">Home</a>
+                <a href="{{ url_for('index') }}#features" class="nav-link">Features</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- Header -->
-        <header class="header">
+        <header class="header" id="home">
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-file-pdf"></i>
                     <h1>PDF Merger</h1>
                 </div>
-                <p class="tagline">Merge multiple PDFs into one seamless document</p>
+                <p class="tagline">Merge multiple PDFs into one seamless document with professional precision</p>
             </div>
         </header>
 
@@ -27,7 +55,7 @@
                 <div class="upload-card">
                     <div class="upload-header">
                         <h2>Upload PDF Files</h2>
-                        <p>Select multiple PDF files to merge them into one document</p>
+                        <p>Select multiple PDF files to merge them into one comprehensive document</p>
                     </div>
 
                     <!-- Flash Messages -->
@@ -73,7 +101,7 @@
                 </div>
 
                 <!-- Features Section -->
-                <div class="features-section">
+                <div class="features-section" id="features">
                     <h3>Why Choose Our PDF Merger?</h3>
                     <div class="features-grid">
                         <div class="feature-card">
@@ -102,8 +130,28 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 PDF Merger. Built with Flask & PyPDF2.</p>
+        <footer class="footer" id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PDF Merger</h4>
+                    <p>Professional PDF merging made simple and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('index') }}#features">Features</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="#help">Help</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Merger. Built with Flask & PyPDF2.</p>
+            </div>
         </footer>
     </div>
 
