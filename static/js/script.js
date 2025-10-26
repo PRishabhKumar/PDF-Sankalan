@@ -48,21 +48,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const href = this.getAttribute('href');
             
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // Check if it's an internal anchor link (starts with #)
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
                 
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Close mobile menu
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close mobile menu
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            }
+            // For external links (About, Contact pages), let the browser handle navigation normally
+            // Just close mobile menu if open
+            else {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
             }

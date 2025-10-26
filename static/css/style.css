@@ -771,196 +771,6 @@ body {
     font-size: 0.875rem;
 }
 
-/* Mobile Navigation */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--bg-secondary);
-        border-bottom: 1px solid var(--border-color);
-        flex-direction: column;
-        padding: var(--space-lg);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all var(--transition-normal);
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-menu .nav-link {
-        padding: var(--space-md);
-        margin-bottom: var(--space-sm);
-        border-radius: var(--radius-md);
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .container {
-        padding: var(--space-lg);
-    }
-    
-    .header-content,
-    .upload-card,
-    .features-section {
-        padding: var(--space-xl);
-    }
-    
-    .logo h1 {
-        font-size: 2.25rem;
-    }
-    
-    .logo i {
-        font-size: 2.75rem;
-    }
-    
-    .file-drop-zone {
-        padding: var(--space-2xl);
-    }
-    
-    .drop-zone-content i {
-        font-size: 2.5rem;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-    }
-    
-    .merge-btn {
-        width: 100%;
-        min-width: auto;
-    }
-    
-    .upload-header h2 {
-        font-size: 1.75rem;
-    }
-    
-    .features-section h3 {
-        font-size: 1.75rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-}
-
-@media (max-width: 480px) {
-    .header-content,
-    .upload-card,
-    .features-section {
-        padding: var(--space-lg);
-    }
-    
-    .logo {
-        flex-direction: column;
-        gap: var(--space-md);
-    }
-    
-    .logo h1 {
-        font-size: 2rem;
-    }
-    
-    .logo i {
-        font-size: 2.5rem;
-    }
-    
-    .file-drop-zone {
-        padding: var(--space-xl);
-    }
-    
-    .drop-zone-content h3 {
-        font-size: 1.125rem;
-    }
-    
-    .merge-btn {
-        padding: var(--space-md) var(--space-lg);
-        font-size: 0.875rem;
-    }
-    
-    .upload-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .features-section h3 {
-        font-size: 1.5rem;
-    }
-    
-    .feature-card {
-        padding: var(--space-lg);
-    }
-    
-    .feature-card i {
-        font-size: 2rem;
-    }
-}
-
-/* Loading Animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.fa-spinner {
-    animation: spin 1s linear infinite;
-}
-
-/* Smooth Transitions */
-* {
-    transition: color var(--transition-fast), 
-                background-color var(--transition-fast), 
-                border-color var(--transition-fast),
-                transform var(--transition-fast),
-                box-shadow var(--transition-fast);
-}
-
-/* Focus States for Accessibility */
-button:focus,
-input:focus {
-    outline: 2px solid var(--accent-500);
-    outline-offset: 2px;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--primary-100);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-400);
-    border-radius: var(--radius-sm);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-500);
-}
-
 /* About Page Styles */
 .about-section,
 .tech-section,
@@ -1482,8 +1292,102 @@ input:focus {
     color: var(--accent-600);
 }
 
-/* Responsive Design for About and Contact Pages */
+/* Mobile Navigation */
 @media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: var(--space-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu .nav-link {
+        padding: var(--space-md);
+        margin-bottom: var(--space-sm);
+        border-radius: var(--radius-md);
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .container {
+        padding: var(--space-lg);
+    }
+    
+    .header-content,
+    .upload-card,
+    .features-section {
+        padding: var(--space-xl);
+    }
+    
+    .logo h1 {
+        font-size: 2.25rem;
+    }
+    
+    .logo i {
+        font-size: 2.75rem;
+    }
+    
+    .file-drop-zone {
+        padding: var(--space-2xl);
+    }
+    
+    .drop-zone-content i {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .merge-btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .upload-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .features-section h3 {
+        font-size: 1.75rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    /* About and Contact Page Mobile Styles */
     .contact-grid {
         grid-template-columns: 1fr;
         gap: var(--space-xl);
@@ -1530,4 +1434,98 @@ input:focus {
     .about-content h3 {
         font-size: 1.25rem;
     }
+}
+
+@media (max-width: 480px) {
+    .header-content,
+    .upload-card,
+    .features-section {
+        padding: var(--space-lg);
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .logo i {
+        font-size: 2.5rem;
+    }
+    
+    .file-drop-zone {
+        padding: var(--space-xl);
+    }
+    
+    .drop-zone-content h3 {
+        font-size: 1.125rem;
+    }
+    
+    .merge-btn {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 0.875rem;
+    }
+    
+    .upload-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .features-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: var(--space-lg);
+    }
+    
+    .feature-card i {
+        font-size: 2rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Smooth Transitions */
+* {
+    transition: color var(--transition-fast), 
+                background-color var(--transition-fast), 
+                border-color var(--transition-fast),
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast);
+}
+
+/* Focus States for Accessibility */
+button:focus,
+input:focus {
+    outline: 2px solid var(--accent-500);
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-400);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-500);
 }
