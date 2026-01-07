@@ -1,0 +1,78 @@
+INTERVIEW QUESTIONS & ANSWERS - PDF SANKALAN PROJECT
+====================================================
+
+PROJECT OVERVIEW
+----------------
+
+Q1: Can you briefly explain what this project does?
+A1: "PDF Sankalan" is a web application built with Python and Flask that allows users to merge multiple PDF files into a single document. Users can upload two or more PDFs, and the backend processes them using the PyPDF2 library to combine them. The merged file is then automatically downloaded with a timestamped filename.
+
+Q2: What is the tech stack used in this project?
+A2:
+- **Backend**: Python with the Flask microframework.
+- **PDF Processing**: PyPDF2 library.
+- **Frontend**: HTML5, CSS (implied, though standard structure is seen), and Jinja2 templating engine.
+- **Environment**: Virtual environment for dependency management.
+
+Q3: Why did you choose Flask for this project?
+A3: Flask is lightweight, easy to set up, and perfect for small to medium-sized applications like this tool. It provides the necessary flexibility for handling file uploads and routing without the overhead of a larger framework like Django.
+
+TECHNICAL IMPLEMENTATION (BACKEND)
+----------------------------------
+
+Q4: How does the file upload mechanism work in your Flask app?
+A4:
+- Depending on the `request.files` object in Flask.
+- I use `request.files.getlist('files')` to retrieve multiple uploaded files.
+- I validate that files are present and have the `.pdf` extension using a helper function `allowed_file`.
+- Valid files are temporarily saved to an `uploads` folder using `secure_filename` to prevent path traversal attacks.
+
+Q5: How do you handle file merging logic?
+A5:
+- I created a `merge_pdfs` function that takes a list of file paths.
+- It initializes a `PyPDF2.PdfMerger()` object.
+- It iterates through each file path and appends it to the merger object.
+- Finally, it writes the merged content into an `io.BytesIO()` in-memory buffer, which avoids saving the final large file to disk permanently, improving performance and cleanliness.
+
+Q6: Why do you use `io.BytesIO()` instead of saving the output to a file on disk?
+A6: writing to an in-memory buffer (`io.BytesIO`) is faster than disk I/O. It also simplifies cleanup since I don't need to manage deleting the output file after sending it to the user. The file exists only in memory during the request.
+
+Q7: How do you handle the cleanup of uploaded files?
+A7: After the merge process is complete (or if it fails), I iterate through the list of temporary file paths and remove them using `os.remove()`. This ensures the server storage doesn't fill up with temporary user files.
+
+Q8: What happens if a user uploads a non-PDF file?
+A8: The application includes an `allowed_file` check that verifies the file extension. If an invalid file is detected, a flash message is shown to the user ("File ... is not a valid PDF"), and the process is skipped for that file or redirected depending on validation logic.
+
+FRONTEND & USER EXPERIENCE
+--------------------------
+
+Q9: How are feedback messages (success/error) displayed to the user?
+A9: I use Flask's `flash()` messaging system. In the Jinja2 templates (`index.html`), I likely have a block that listens for `get_flashed_messages()` to display alerts (like "No files selected" or "Error merging PDFs") dynamically.
+
+Q10: How does the user download the merged file?
+A10: The `send_file` function from Flask is used. It takes the in-memory buffer (`merged_pdf`), sets `as_attachment=True`, and specifies a `download_name` (e.g., `merged_pdf_20240101_120000.pdf`) so the browser treats it as a file download rather than opening it directly.
+
+SECURITY & BEST PRACTICES
+-------------------------
+
+Q11: What security measures did you implement for file uploads?
+A11:
+1.  **Extension Validation**: Strictly checking for `.pdf` extensions.
+2.  **`secure_filename`**: Using Werkzeug's `secure_filename` to sanitize filenames, preventing attackers from using malicious filenames (like `../../etc/passwd`).
+3.  **File Size Limit**: Although not explicitly seen in the snippet, typically `MAX_CONTENT_LENGTH` config in Flask or manual size checks prevent DoS attacks via massive file uploads. *Self-correction: I added a `MAX_FILE_SIZE` constant and check `file.content_length` to limit uploads to 16MB.*
+
+Q12: How do you handle concurrent users?
+A12: The current implementation saves files to a shared `uploads` directory. In a production environment, this could handle concurrent users, but race conditions might occur if two users upload files with the exact same name at the exact same time. A better approach for production would be to use unique temporary directories (e.g., using `uuid`) for each request or user session to isolate their files completely.
+
+SCENARIO & BEHAVIORAL
+---------------------
+
+Q13: What was the most challenging part of this project?
+A13: Handlng the binary streams correctly with `io.BytesIO` was interesting. Initially, one might try to save the merged file to disk, sends it, and then try to delete it, which can cause "file in use" errors on Windows. switching to an in-memory buffer solved this and made the app more robust.
+
+Q14: How would you improve this application if you had more time?
+A14:
+- **Drag & Drop Interface**: Improve the UI.
+- **Page Reordering**: Allow users to reorder pages within the PDFs before merging.
+- **Cloud Storage**: Use S3 or similar for temporary storage instead of the local file system for better scalability (if deploying to serverless).
+- **Asynchronous Processing**: For very large files, move the processing to a background task (like Celery) so the request doesn't time out.
